@@ -1,6 +1,6 @@
 
 select distinct A.product_id as product_id, 
-       case when B.product_id is null then 10 else max_price end as price
+       coalesce(max_price,10) as price
         
 from Products A
 left join 
